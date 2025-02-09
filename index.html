@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./app.js" defer></script>
+</head>
+<body>
+
+    <div class="heading">
+        <h1>Transfer List</h1>
+    </div>
+
+    <div class="container">
+        <div class="left" id="left">
+            <!-- <div class="item">
+                <input type="checkbox">
+                <label>Item 1</label>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <label>Item 2</label>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <label>Item 3</label>
+            </div> -->
+        </div>
+        <div class="arrow-buttons">
+            <button class="all-right" onclick="transferAllFromLeft()">
+                >>
+            </button>
+            <button class="slected-right" onclick="transferCheckedListFromLeftToRight()">
+                >
+            </button>
+
+            <button class="all-left" onclick="transferCheckedListRightToLeft()">
+                <
+            </button>
+            <button class="slected-left" onclick="transferAllFromRight()">
+                <<
+            </button>
+        </div>
+        <div class="right" id="right">
+        </div>
+    </div>
+    <div class="left"></div>
+
+
+</body>
+</html>

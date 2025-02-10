@@ -7,7 +7,7 @@ function makeLeftList() {
         const item = document.createElement('div');
         item.classList.add('item');
         item.innerHTML = `
-            <input type="checkbox">
+            <input type="checkbox" onchange="btn()">
             <label>Item ${y + 1}</label>
         `;
         leftList.appendChild(item);
@@ -24,6 +24,8 @@ function transferCheckedListFromLeftToRight() {
             rightList.appendChild(checkbox.parentElement);
         }
     });
+
+    btn();
 }
 
 function transferAllFromLeft(){
@@ -31,6 +33,8 @@ function transferAllFromLeft(){
         checkbox.checked=false;
         rightList.appendChild(checkbox.parentElement);
     });
+
+    btn();
 }
 
 function transferCheckedListRightToLeft(){
@@ -40,6 +44,8 @@ function transferCheckedListRightToLeft(){
             leftList.appendChild(item.parentElement);
         }
     });
+
+    btn();
 }
 
 function transferAllFromRight(){
@@ -47,4 +53,37 @@ function transferAllFromRight(){
         checkbox.checked=false;
         leftList.appendChild(checkbox.parentElement);
     });
+
+    btn();
 }
+
+function btn(){
+
+    if(Array.from(leftList.getElementsByTagName('input')).find((item)=>item.checked)){
+        document.getElementById('slected-right').disabled = false;
+    }else{
+        document.getElementById('slected-right').disabled = true;
+    }
+
+    if(Array.from(rightList.getElementsByTagName('input')).find((item)=>item.checked)){
+        document.getElementById('slected-left').disabled = false;
+    }else{
+        document.getElementById('slected-left').disabled = true;
+    }
+
+    if(Array.from(leftList.getElementsByClassName('item')).length == 0){
+        document.getElementById('all-right').disabled = true;
+    }else{
+        document.getElementById('all-right').disabled = false;
+    }
+
+    if(Array.from(rightList.getElementsByClassName('item')).length == 0){
+        document.getElementById('all-left').disabled = true;
+    }else{
+        document.getElementById('all-left').disabled = false;
+    }
+    console.log("changes trigger ");
+
+}
+
+btn();

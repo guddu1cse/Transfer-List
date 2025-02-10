@@ -3,7 +3,7 @@ const leftList = document.getElementById('left');
 const rightList = document.getElementById('right');
 
 function makeLeftList() {
-    for (let y = 0; y < 10; y++) {
+    for (let y = 0; y < 6; y++) {
         const item = document.createElement('div');
         item.classList.add('item');
         item.innerHTML = `
@@ -11,6 +11,16 @@ function makeLeftList() {
             <label>Item ${y + 1}</label>
         `;
         leftList.appendChild(item);
+    }
+
+    for (let y = 0; y < 4; y++) {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        item.innerHTML = `
+            <input type="checkbox" onchange="btn()">
+            <label>Item 1${y + 1}</label>
+        `;
+        rightList.appendChild(item);
     }
 }
 
